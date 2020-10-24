@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "5f93d4f27536be3b2c565f98"
+  },
+  "created_at": {
+    "$date": "2020-10-24T07:17:06.692Z"
+  },
+  "name": "Dat Ho",
+  "username": "datho",
+  "password": "temp_password",
+  "email": "datho@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f93dabc8f361a3f800f39c9"
+  },
+  "created_at": {
+    "$date": "2020-10-24T07:41:48.293Z"
+  },
+  "name": "Test",
+  "username": "test",
+  "password": "temp_password",
+  "email": "test@gmail.com",
+  "__v": 0
+}]
