@@ -10,6 +10,10 @@ let columnSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    color: {
+      type: String,
+      default: 'red',
+    },
     order: {
       type: Number,
       default: 0,

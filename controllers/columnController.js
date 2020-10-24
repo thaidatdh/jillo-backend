@@ -22,6 +22,7 @@ exports.add = function (req, res) {
     let column = new Column();
     column.name = req.body.name ? req.body.name : column.name;
     column.board_id = req.body.board_id ? req.body.board_id : column.board_id;
+    column.color = req.body.color ? req.body.color : column.color;
     column.order = req.body.order ? req.body.order : column.order;
 
     //Save and check error
@@ -55,6 +56,7 @@ exports.update = function (req, res) {
             res.send(err);
             column.name = req.body.name ? req.body.name : column.name;
             column.board_id = req.body.board_id ? req.body.board_id : column.board_id;
+            column.color = req.body.color ? req.body.color : column.color;
             column.order = req.body.order ? req.body.order : column.order;
 
         //save and check errors
