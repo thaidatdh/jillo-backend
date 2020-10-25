@@ -4,7 +4,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a356",
-  "order": "3",
+  "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -14,7 +14,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a357",
-  "order": "1",
+  "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -24,7 +24,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a357",
-  "order": "2",
+  "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -34,7 +34,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a357",
-  "order": "3",
+  "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -44,7 +44,7 @@
   },
   "name": "Went well",
   "board_id": "5f93beed4f37b51c24c9a21a",
-  "order": "1",
+  "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -54,7 +54,7 @@
   },
   "name": "To improve",
   "board_id": "5f93beed4f37b51c24c9a21a",
-  "order": "2",
+  "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -64,7 +64,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93beed4f37b51c24c9a21a",
-  "order": "3",
+  "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -74,7 +74,7 @@
   },
   "name": "Went well",
   "board_id": "5f93d294dc7c3a04845887e7",
-  "order": "1",
+  "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -84,7 +84,7 @@
   },
   "name": "To improve",
   "board_id": "5f93d294dc7c3a04845887e7",
-  "order": "2",
+  "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -94,7 +94,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93d294dc7c3a04845887e7",
-  "order": "3",
+  "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
   }
@@ -104,6 +104,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a350",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -114,6 +115,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a350",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -124,6 +126,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a350",
+  "color": "blue",
   "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -134,6 +137,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a351",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -144,6 +148,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a351",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -154,6 +159,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a351",
+  "color": "blue",
   "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -164,6 +170,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a352",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -174,6 +181,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a352",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -184,6 +192,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a352",
+  "color": "blue",
   "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -194,6 +203,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a353",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -204,6 +214,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a353",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -214,6 +225,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a353",
+  "color": "blue",
   "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -224,6 +236,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a354",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -234,6 +247,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a354",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -244,6 +258,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a354",
+  "color": "blue",
   "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -254,6 +269,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a355",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -264,6 +280,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a355",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -274,6 +291,7 @@
   },
   "name": "Action Items",
   "board_id": "5f93bea7b4472c330487a355",
+  "color": "blue",
   "order": 3,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -284,6 +302,7 @@
   },
   "name": "Went well",
   "board_id": "5f93bea7b4472c330487a356",
+  "color": "green",
   "order": 1,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
@@ -294,6 +313,7 @@
   },
   "name": "To improve",
   "board_id": "5f93bea7b4472c330487a356",
+  "color": "red",
   "order": 2,
   "created_at": {
     "$date": "2020-10-24T07:47:00Z"
