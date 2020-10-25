@@ -48,7 +48,18 @@ exports.view = function (req, res) {
         });
     });
 };
-
+// Get Columns by Board_id
+exports.viewBoard = function (req, res) {
+    Column.find({ 'board_id': req.params.board_id.toString() })
+    .exec(function (err, column) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: ' Board\'s Columns ' + req.params.board_id.toString(),
+            data: column
+        });
+    });
+};
 // Update Column
 exports.update = function (req, res) {
     Column.findById(req.params.column_id, function (err, column) {

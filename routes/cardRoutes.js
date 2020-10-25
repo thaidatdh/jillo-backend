@@ -13,6 +13,10 @@ router.route('/:card_id')
     .patch(cardController.update)
     .put(cardController.update)
     .delete(cardController.delete);
-
+// Extra routes
+router.route('/column/:column_id')
+    .get(cardController.viewColumn)
+router.route('/column/columns=:column_id_list/count')
+    .get(cardController.viewCardCountByColumnList)
 //Export API routes
 module.exports = router;

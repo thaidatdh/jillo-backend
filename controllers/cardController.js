@@ -47,7 +47,30 @@ exports.view = function (req, res) {
         });
     });
 };
-
+// Get Cards by column_id
+exports.viewColumn = function (req, res) {
+    Card.find({ 'column_id': req.params.column_id.toString() })
+    .exec(function (err, card) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: ' Column\'s Cards ' + req.params.column_id.toString(),
+            data: card
+        });
+    });
+};
+// Get Cards count by column_id list
+exports.viewCardCountByColumnList = function (req, res) {
+    Card.countDocuments({ 'column_id': { "$in" : req.params.column_id_list.split(',')} })
+    .exec(function (err, count) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: ' Column\'s Cards count ' + req.params.column_id_list.toString(),
+            data: count
+        });
+    });
+};
 // Update Card
 exports.update = function (req, res) {
     Card.findById(req.params.card_id, function (err, card) {

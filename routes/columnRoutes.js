@@ -14,5 +14,9 @@ router.route('/:column_id')
     .put(columnController.update)
     .delete(columnController.delete);
 
+// Extra routes
+router.route('/board/:board_id')
+    .get(columnController.viewBoard)
+
 //Export API routes
 module.exports = router;
