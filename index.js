@@ -3,6 +3,7 @@ let express = require('express')
 let bodyParser = require('body-parser');
 //import mongoose
 let mongoose = require('mongoose');
+let passport = require('passport');
 let app = express();
 var cors = require("cors");
 
@@ -15,9 +16,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());
+app.use(passport.initialize());
 
 //connect to mongoose
-const dbPath = 'mongodb://localhost/jillo';
+const dbPath = 'mongodb://localhost:27017/jillo';
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 const mongo = mongoose.connect(dbPath, options);
 

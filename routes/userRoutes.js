@@ -14,5 +14,7 @@ router.route('/:user_id')
     .put(userController.update)
     .delete(userController.delete);
 
+router.route('/signup').post(userController.signup);
+router.route('/signin').post(userController.signin);
 //Export API routes
 module.exports = router;
