@@ -53,7 +53,7 @@ exports.update = function (req, res) {
         if (err)
             res.send(err);
             board.name = req.body.name ? req.body.name : board.name;
-            board.owner_id = req.body.owner_id;
+            board.owner_id = req.body.owner_id ? req.body.owner_id : board.owner_id;
 
         //save and check errors
         board.save(function (err) {

@@ -20,10 +20,9 @@ exports.index = function (req, res) {
 //For creating new card
 exports.add = function (req, res) {
     let card = new Card();
-    card.desc = req.body.desc ? req.body.desc : card.desc;
-    card.column_id = req.body.column_id ? req.body.column_id : card.column_id;
+    card.desc = req.body.desc;
+    card.column_id = req.body.column_id;
     card.order = req.body.order ? req.body.order : card.order;
-
     //Save and check error
     card.save(function (err) {
         if (err)
