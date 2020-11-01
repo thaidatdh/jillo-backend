@@ -46,7 +46,18 @@ exports.view = function (req, res) {
         });
     });
 };
-
+// Get Boards by user_id
+exports.viewUser = function (req, res) {
+    Board.find({ owner_id : req.params.user_id.toString() })
+    .exec(function (err, board) {
+        if (err)
+            res.send(err);
+        res.json({
+            message: 'Users\'s Boards ' + req.params.user_id.toString(),
+            data: board
+        });
+    });
+};
 // Update Board
 exports.update = function (req, res) {
     Board.findById(req.params.board_id, function (err, board) {

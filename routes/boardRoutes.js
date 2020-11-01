@@ -13,6 +13,8 @@ router.route('/:board_id')
     .patch(boardController.update)
     .put(boardController.update)
     .delete(boardController.delete);
-
+// Extra routes
+router.route('/user/:user_id')
+    .get(boardController.viewUser)
 //Export API routes
 module.exports = router;

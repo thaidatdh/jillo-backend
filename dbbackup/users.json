@@ -1,25 +1,25 @@
 [{
   "_id": {
-    "$oid": "5f93d4f27536be3b2c565f98"
+    "$oid": "5f9e9690859a0b4078346e9a"
   },
   "created_at": {
-    "$date": "2020-10-24T07:17:06.692Z"
-  },
-  "name": "Dat Ho",
-  "username": "datho",
-  "password": "temp_password",
-  "email": "datho@gmail.com",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "5f93dabc8f361a3f800f39c9"
-  },
-  "created_at": {
-    "$date": "2020-10-24T07:41:48.293Z"
+    "$date": "2020-11-01T11:05:52.691Z"
   },
   "name": "Test",
   "username": "test",
-  "password": "temp_password",
+  "password": "$2a$10$i7eAF2lb6U7PqxS26IOg/.AacyLbUFEjxEzLk8XJqvqFxACNrBOBq",
   "email": "test@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f9e969a859a0b4078346e9b"
+  },
+  "created_at": {
+    "$date": "2020-11-01T11:06:02.629Z"
+  },
+  "name": "Test",
+  "username": "test2",
+  "password": "$2a$10$Suemv8fWHT1O.dwCKOGJXeQ4xOSxlgGngO0YMhKV34phNw/LcJcUe",
+  "email": "test2@gmail.com",
   "__v": 0
 }]
