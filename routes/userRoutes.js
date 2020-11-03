@@ -16,5 +16,6 @@ router.route('/:user_id')
 
 router.route('/signup').post(userController.signup);
 router.route('/signin').post(userController.signin);
+router.route('/checkpassword').post(userController.checkPassword);
 //Export API routes
 module.exports = router;

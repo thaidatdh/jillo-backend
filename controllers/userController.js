@@ -65,9 +65,19 @@ exports.update = function (req, res) {
     //save and check errors
     user.save(function (err) {
       if (err) res.json(err);
+      let newUser = new User({
+        _id: user._id,
+        username: user.username,
+        name: user.name,
+        email: user.email,
+        created_at: user.created_at,
+      });
+      // if user is found and password is right create a token
+      let token = jwt.sign(JSON.stringify(newUser), config.secret);
       res.json({
         message: "User Updated Successfully",
         data: user,
+        token: token,
       });
     });
   });
@@ -96,7 +106,7 @@ exports.signup = function (req, res) {
       msg: "Please enter email, username and password.",
     });
   } else {
-    var newUser = new User({
+    let newUser = new User({
       username: req.body.username,
       password: req.body.password,
       name: req.body.name,
@@ -127,6 +137,35 @@ exports.signup = function (req, res) {
     });
   }
 };
+exports.checkPassword = function (req, res) {
+  User.findById(req.body.user_id, function (err, user) {
+    if (err) {
+      res.status(401).send({
+        success: false,
+        msg: err,
+      });
+    } else
+    if (!user) {
+      res.status(401).send({
+        success: false,
+        msg: "User not found.",
+      });
+    } else {
+      // check if password matches
+      user.comparePassword(req.body.password, function (err, isMatch) {
+        if (isMatch && !err) {
+          res.json({ success: true });
+        } else {
+          res.status(401).send({
+            success: false,
+            msg: "Wrong password",
+          });
+        }
+      });
+    }
+  });
+};
+
 exports.signin = function (req, res) {
   User.findOne(
     { $or: [{ email: req.body.email }, { username: req.body.email }] },
@@ -142,8 +181,15 @@ exports.signin = function (req, res) {
         // check if password matches
         user.comparePassword(req.body.password, function (err, isMatch) {
           if (isMatch && !err) {
+            let newUser = new User({
+              _id: user._id,
+              username: user.username,
+              name: user.name,
+              email: user.email,
+              created_at: user.created_at,
+            });
             // if user is found and password is right create a token
-            let token = jwt.sign(JSON.stringify(user), config.secret);
+            let token = jwt.sign(JSON.stringify(newUser), config.secret);
             // return the information including token as JSON
             res.json({ success: true, token: token, data: user._id });
           } else {
