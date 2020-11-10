@@ -180,45 +180,90 @@ exports.signupGoogle = function (req, res) {
               msg: "Username already exists.",
             });
           }
-        });
-      }
-      //Sign In Google here
-      User.findOne({ email: req.body.email }, function (err, userFounded) {
-        if (err) {
-          return res.json({
-            success: false,
-            msg: "Error Google",
-          });
-        }
-        if (userFounded && userFounded.google_token === req.body.google_token) {
-          let newUserReturn = new User({
-            _id: userFounded._id,
-            username: userFounded.username,
-            name: userFounded.name,
-            email: userFounded.email,
-            created_at: userFounded.created_at,
-            google_token: userFounded.google_token,
-            facebook_token: userFounded.facebook_token,
-          });
-          // if user is found and password is right create a token
-          let token = jwt.sign(JSON.stringify(newUserReturn), config.secret);
-          // return the information including token as JSON
-          res.json({ success: true, token: token, data: userFounded._id });
-        } else {
-          if (!userFounded || (userFounded.google_token !== '' && userFounded.google_token !== undefined)) {
-            return res.json({
-              success: false,
-              msg: "Google User not found",
-            });
-          }
-          userFounded.google_token = req.body.google_token;
-          userFounded.save(function (err) {
+          //Sign In Google here
+          User.findOne({ email: req.body.email }, function (err, userFounded) {
             if (err) {
               return res.json({
                 success: false,
-                msg: "Username already exists.",
+                msg: "Error Google",
               });
             }
+            if (
+              userFounded &&
+              userFounded.google_token === req.body.google_token
+            ) {
+              let newUserReturn = new User({
+                _id: userFounded._id,
+                username: userFounded.username,
+                name: userFounded.name,
+                email: userFounded.email,
+                created_at: userFounded.created_at,
+                google_token: userFounded.google_token,
+                facebook_token: userFounded.facebook_token,
+              });
+              // if user is found and password is right create a token
+              let token = jwt.sign(
+                JSON.stringify(newUserReturn),
+                config.secret
+              );
+              // return the information including token as JSON
+              res.json({ success: true, token: token, data: userFounded._id });
+            } else {
+              if (
+                !userFounded ||
+                (userFounded.google_token !== "" &&
+                  userFounded.google_token !== undefined)
+              ) {
+                return res.json({
+                  success: false,
+                  msg: "Google User not found",
+                });
+              }
+              userFounded.google_token = req.body.google_token;
+              userFounded.save(function (err) {
+                if (err) {
+                  return res.json({
+                    success: false,
+                    msg: "Username already exists.",
+                  });
+                }
+                let newUserReturn = new User({
+                  _id: userFounded._id,
+                  username: userFounded.username,
+                  name: userFounded.name,
+                  email: userFounded.email,
+                  created_at: userFounded.created_at,
+                  google_token: userFounded.google_token,
+                  facebook_token: userFounded.facebook_token,
+                });
+                // if user is found and password is right create a token
+                let token = jwt.sign(
+                  JSON.stringify(newUserReturn),
+                  config.secret
+                );
+                // return the information including token as JSON
+                res.json({
+                  success: true,
+                  token: token,
+                  data: userFounded._id,
+                });
+              });
+            }
+          });
+        });
+      } else {
+        //Sign In Google here
+        User.findOne({ email: req.body.email }, function (err, userFounded) {
+          if (err) {
+            return res.json({
+              success: false,
+              msg: "Error Google",
+            });
+          }
+          if (
+            userFounded &&
+            userFounded.google_token === req.body.google_token
+          ) {
             let newUserReturn = new User({
               _id: userFounded._id,
               username: userFounded.username,
@@ -232,12 +277,49 @@ exports.signupGoogle = function (req, res) {
             let token = jwt.sign(JSON.stringify(newUserReturn), config.secret);
             // return the information including token as JSON
             res.json({ success: true, token: token, data: userFounded._id });
-          });
-        }
-      });
+          } else {
+            if (
+              !userFounded ||
+              (userFounded.google_token !== "" &&
+                userFounded.google_token !== undefined)
+            ) {
+              return res.json({
+                success: false,
+                msg: "Google User not found",
+              });
+            }
+            userFounded.google_token = req.body.google_token;
+            userFounded.save(function (err) {
+              if (err) {
+                return res.json({
+                  success: false,
+                  msg: "Username already exists.",
+                });
+              }
+              let newUserReturn = new User({
+                _id: userFounded._id,
+                username: userFounded.username,
+                name: userFounded.name,
+                email: userFounded.email,
+                created_at: userFounded.created_at,
+                google_token: userFounded.google_token,
+                facebook_token: userFounded.facebook_token,
+              });
+              // if user is found and password is right create a token
+              let token = jwt.sign(
+                JSON.stringify(newUserReturn),
+                config.secret
+              );
+              // return the information including token as JSON
+              res.json({ success: true, token: token, data: userFounded._id });
+            });
+          }
+        });
+      }
     });
   }
 };
+
 exports.signupFacebook = function (req, res) {
   if (!req.body.email || !req.body.facebook_token || !req.body.username) {
     res.json({
@@ -269,45 +351,89 @@ exports.signupFacebook = function (req, res) {
               msg: "Username already exists.",
             });
           }
-        });
-      }
-      //Sign In Facebook here
-      User.findOne({ email: req.body.email }, function (err, userFounded) {
-        if (err) {
-          return res.json({
-            success: false,
-            msg: "Error Facebook",
-          });
-        }
-        if (userFounded && userFounded.facebook_token === req.body.facebook_token) {
-          let newUserReturn = new User({
-            _id: userFounded._id,
-            username: userFounded.username,
-            name: userFounded.name,
-            email: userFounded.email,
-            created_at: userFounded.created_at,
-            google_token: userFounded.google_token,
-            facebook_token: userFounded.facebook_token,
-          });
-          // if user is found and password is right create a token
-          let token = jwt.sign(JSON.stringify(newUserReturn), config.secret);
-          // return the information including token as JSON
-          res.json({ success: true, token: token, data: userFounded._id });
-        } else {
-          if (!userFounded || (userFounded.facebook_token !== '' && userFounded.facebook_token !== undefined)) {
-            return res.json({
-              success: false,
-              msg: "Facebook User not found",
-            });
-          }
-          userFounded.facebook_token = req.body.facebook_token;
-          userFounded.save(function (err) {
+          User.findOne({ email: req.body.email }, function (err, userFounded) {
             if (err) {
               return res.json({
                 success: false,
-                msg: "Username already exists.",
+                msg: "Error Facebook",
               });
             }
+            if (
+              userFounded &&
+              userFounded.facebook_token === req.body.facebook_token
+            ) {
+              let newUserReturn = new User({
+                _id: userFounded._id,
+                username: userFounded.username,
+                name: userFounded.name,
+                email: userFounded.email,
+                created_at: userFounded.created_at,
+                google_token: userFounded.google_token,
+                facebook_token: userFounded.facebook_token,
+              });
+              // if user is found and password is right create a token
+              let token = jwt.sign(
+                JSON.stringify(newUserReturn),
+                config.secret
+              );
+              // return the information including token as JSON
+              res.json({ success: true, token: token, data: userFounded._id });
+            } else {
+              if (
+                !userFounded ||
+                (userFounded.facebook_token !== "" &&
+                  userFounded.facebook_token !== undefined)
+              ) {
+                return res.json({
+                  success: false,
+                  msg: "Facebook User not found",
+                });
+              }
+              userFounded.facebook_token = req.body.facebook_token;
+              userFounded.save(function (err) {
+                if (err) {
+                  return res.json({
+                    success: false,
+                    msg: "Username already exists.",
+                  });
+                }
+                let newUserReturn = new User({
+                  _id: userFounded._id,
+                  username: userFounded.username,
+                  name: userFounded.name,
+                  email: userFounded.email,
+                  created_at: userFounded.created_at,
+                  google_token: userFounded.google_token,
+                  facebook_token: userFounded.facebook_token,
+                });
+                // if user is found and password is right create a token
+                let token = jwt.sign(
+                  JSON.stringify(newUserReturn),
+                  config.secret
+                );
+                // return the information including token as JSON
+                res.json({
+                  success: true,
+                  token: token,
+                  data: userFounded._id,
+                });
+              });
+            }
+          });
+        });
+      } else {
+        //Sign In Facebook here
+        User.findOne({ email: req.body.email }, function (err, userFounded) {
+          if (err) {
+            return res.json({
+              success: false,
+              msg: "Error Facebook",
+            });
+          }
+          if (
+            userFounded &&
+            userFounded.facebook_token === req.body.facebook_token
+          ) {
             let newUserReturn = new User({
               _id: userFounded._id,
               username: userFounded.username,
@@ -321,9 +447,45 @@ exports.signupFacebook = function (req, res) {
             let token = jwt.sign(JSON.stringify(newUserReturn), config.secret);
             // return the information including token as JSON
             res.json({ success: true, token: token, data: userFounded._id });
-          });
-        }
-      });
+          } else {
+            if (
+              !userFounded ||
+              (userFounded.facebook_token !== "" &&
+                userFounded.facebook_token !== undefined)
+            ) {
+              return res.json({
+                success: false,
+                msg: "Facebook User not found",
+              });
+            }
+            userFounded.facebook_token = req.body.facebook_token;
+            userFounded.save(function (err) {
+              if (err) {
+                return res.json({
+                  success: false,
+                  msg: "Username already exists.",
+                });
+              }
+              let newUserReturn = new User({
+                _id: userFounded._id,
+                username: userFounded.username,
+                name: userFounded.name,
+                email: userFounded.email,
+                created_at: userFounded.created_at,
+                google_token: userFounded.google_token,
+                facebook_token: userFounded.facebook_token,
+              });
+              // if user is found and password is right create a token
+              let token = jwt.sign(
+                JSON.stringify(newUserReturn),
+                config.secret
+              );
+              // return the information including token as JSON
+              res.json({ success: true, token: token, data: userFounded._id });
+            });
+          }
+        });
+      }
     });
   }
 };
