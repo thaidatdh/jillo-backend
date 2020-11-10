@@ -15,6 +15,9 @@ router.route('/:user_id')
     .delete(userController.delete);
 
 router.route('/signup').post(userController.signup);
+router.route('/signupgoogle').post(userController.signupGoogle);
+router.route('/signupfacebook').post(userController.signupFacebook);
+router.route('/signup').post(userController.signup);
 router.route('/signin').post(userController.signin);
 router.route('/checkpassword').post(userController.checkPassword);
 //Export API routes

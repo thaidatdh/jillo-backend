@@ -16,11 +16,22 @@ let userSchema = mongoose.Schema({
     },
     password: {
       type: String,
-      required: true
+      required: false,
+      default: '',
     },
     photo_link: {
       type: String,
       required: false
+    },
+    google_token: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    facebook_token: {
+      type: String,
+      required: false,
+      default: '',
     },
     created_at: {
         type: Date,
