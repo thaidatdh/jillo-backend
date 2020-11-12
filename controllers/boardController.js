@@ -49,6 +49,10 @@ exports.view = function (req, res) {
 // Get Boards by user_id
 exports.viewUser = function (req, res) {
     Board.find({ owner_id : req.params.user_id.toString() })
+    .populate({
+        path: 'columns',
+        sort: {order: 1},
+    })
     .exec(function (err, board) {
         if (err)
             res.send(err);

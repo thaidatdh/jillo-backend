@@ -14,8 +14,13 @@ let boardSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
+}, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
+boardSchema.virtual('columns', {
+  ref: 'column',
+  localField: '_id',
+  foreignField: 'board_id',
+  justOne: false
 });
-
 // Export Board Model
 let Board = module.exports = mongoose.model('board', boardSchema);
 

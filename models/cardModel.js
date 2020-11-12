@@ -18,7 +18,7 @@ let cardSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+}, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
 
 // Export Card Model
 let Card = module.exports = mongoose.model('card', cardSchema);

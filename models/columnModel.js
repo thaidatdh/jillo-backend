@@ -21,9 +21,14 @@ let columnSchema = mongoose.Schema({
     created_at: {
         type: Date,
         default: Date.now
-    }
+    },
+}, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
+columnSchema.virtual('cards', {
+  ref: 'card',
+  localField: '_id',
+  foreignField: 'column_id',
+  justOne: false
 });
-
 // Export Column Model
 let Column = module.exports = mongoose.model('column', columnSchema);
 

@@ -1,6 +1,6 @@
 //Import Column Model
 Column = require('../models/columnModel');
-
+Card = require('../models/cardModel')
 //For index
 exports.index = function (req, res) {
     Column.get(function (err, column) {
@@ -50,7 +50,11 @@ exports.view = function (req, res) {
 };
 // Get Columns by Board_id
 exports.viewBoard = function (req, res) {
-    Column.find({ 'board_id': req.params.board_id.toString() })
+    Column.find({ 'board_id': req.params.board_id.toString() }).sort({order: 1})
+    .populate({
+        path: 'cards',
+        sort: {order: 1},
+    })
     .exec(function (err, column) {
         if (err)
             res.send(err);
