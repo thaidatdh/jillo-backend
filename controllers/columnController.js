@@ -53,7 +53,7 @@ exports.viewBoard = function (req, res) {
     Column.find({ 'board_id': req.params.board_id.toString() }).sort({order: 1})
     .populate({
         path: 'cards',
-        sort: {order: 1},
+        options: {sort: {order: 1}},
     })
     .exec(function (err, column) {
         if (err)

@@ -51,7 +51,7 @@ exports.viewUser = function (req, res) {
     Board.find({ owner_id : req.params.user_id.toString() })
     .populate({
         path: 'columns',
-        sort: {order: 1},
+        options: {sort: {order: 1}},
     })
     .exec(function (err, board) {
         if (err)
