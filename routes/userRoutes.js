@@ -14,7 +14,6 @@ router.route('/:user_id')
     .put(userController.update)
     .delete(userController.delete);
 
-router.route('/signup').post(userController.signup);
 router.route('/signupgoogle').post(userController.signupGoogle);
 router.route('/signupfacebook').post(userController.signupFacebook);
 router.route('/signup').post(userController.signup);
